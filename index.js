@@ -12,4 +12,6 @@ app.use(bodyParser.urlencoded({
 app.use(express.static('client'));
 router.set(app);
 
+
+// Starting the server
 app.listen(config.port, () => console.log(`App listening on port ${config.port}`));
