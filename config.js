@@ -10,7 +10,6 @@ module.exports = {
         dialect: process.env.DB_DIALECT || 'mysql',
         operatorsAliases: false
     },
-    saltRounds: process.env.SALT_ROUNDS,
     jwtSecret: process.env.JWT_SECRET || 'secret_key',
     tokenExpireTime: process.env.TOKEN_EXPIRE_TIME || '6h'
 }

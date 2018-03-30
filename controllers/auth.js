@@ -12,6 +12,8 @@ function login(req, res) {
             success: true,
             data: { token }
         });
+        
+        console.log(token);
     })
     .catch(err => {
         res.send({
@@ -32,10 +34,10 @@ function register(req, res) {
                 message: 'Registration failed. User with this email already registered.'
             });
         }
-
+        
         var user = {
             login: req.body.login,
-            password: bcrypt.hashSync(req.body.password, config.saltRounds)
+            password: bcrypt.hashSync(req.body.password, 2)
         }
 
         return userService.addUser(user)
