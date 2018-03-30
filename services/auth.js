@@ -7,7 +7,7 @@ const config = require('../config');
 const authenticate = params => {
     return Users.findOne({
         where: {
-            login: params.login
+            username: params.username
         },
         raw: true
     }).then(user => {
@@ -16,7 +16,7 @@ const authenticate = params => {
         if(!bcrypt.compareSync(params.password || '', user.password))
             throw new Error('Authentication failed. Wrong password.');
         const payload = {
-            login: user.login,
+            username: user.username,
             id: user.id,
             time: new Date()
         };

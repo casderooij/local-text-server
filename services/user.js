@@ -3,7 +3,7 @@ const Users = require('../models').User;
 
 const addUser = user => Users.create(user);
 
-const getUserByLogin = login => Users.findOne({where: {login}});
+const getUserByLogin = username => Users.findOne({where: {username}});
 
 const getUserById = id => Users.findById(id);
 

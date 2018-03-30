@@ -14,7 +14,7 @@ const checkAuth = (req, res, next) => {
         }
 
         req.user = {
-            login: decoded.login,
+            username: decoded.username,
             id: decoded.id
         };
 

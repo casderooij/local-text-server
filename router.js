@@ -1,5 +1,5 @@
 const authController = require('./controllers/auth');
-const orderController = require('./controllers/order');
+const textController = require('./controllers/text');
 const userController = require('./controllers/user');
 
 const authMiddleware = require('./middlewares/auth');
@@ -8,9 +8,9 @@ module.exports.set = app => {
     app.post('/login', authController.login);
     app.post('/register', authController.register);
 
-    app.get('/orders', authMiddleware.checkAuth, orderController.getOrders);
-    app.get('/orders/:id', authMiddleware.checkAuth, orderController.getOrder);
-    app.post('/orders', authMiddleware.checkAuth, orderController.addOrder);
+    app.get('/texts', authMiddleware.checkAuth, textController.getTexts);
+    app.get('/texts/:id', authMiddleware.checkAuth, textController.getText);
+    app.post('/texts', authMiddleware.checkAuth, textController.addText);
     // app.get('/user_orders', authMiddleware.checkAuth, userController.getUsersWithOrders);
 
     app.get('/users', authMiddleware.checkAuth, userController.getAllUsers);

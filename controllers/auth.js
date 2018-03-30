@@ -24,8 +24,11 @@ function login(req, res) {
 };
 
 function register(req, res) {
-    var login = req.body.login;
-    return userService.getUserByLogin(req.body.login || '')
+    var login = req.body.username;
+
+    console.log(login, req.body.password);
+
+    return userService.getUserByLogin(req.body.username || '')
     .then(exists => {
 
         if(exists) {
@@ -36,7 +39,7 @@ function register(req, res) {
         }
         
         var user = {
-            login: req.body.login,
+            username: req.body.username,
             password: bcrypt.hashSync(req.body.password, 2)
         }
 

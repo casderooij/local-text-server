@@ -7,9 +7,9 @@ const User = sequelize.define('user', {
         primaryKey: true,
         autoIncrement: true
     },
-    login: Sequelize.STRING,
+    username: Sequelize.STRING,
     password: Sequelize.STRING,
-    created_at: {
+    createdAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
     }
@@ -33,7 +33,7 @@ const Text = sequelize.define('text', {
     latitude: Sequelize.FLOAT(8,6),
     longitude: Sequelize.FLOAT(8,6),
     likes: Sequelize.INTEGER,
-    created_at: {
+    createdAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
     }
