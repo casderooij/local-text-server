@@ -22,8 +22,14 @@ function addText(req, res){
     .then(data => res.send(data));
 };
 
+function nearestTexts(req, res) {
+    textService.findNearestTexts(req.params.lat, req.params.lon)
+    .then(data => res.send(data));
+}
+
 module.exports = {
 	getTexts,
 	getText,
-	addText
+    addText,
+    nearestTexts
 }

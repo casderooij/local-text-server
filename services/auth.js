@@ -27,7 +27,8 @@ const authenticate = params => {
         var token = jwt.sign(payload, config.jwtSecret, {
             expiresIn: config.tokenExpireTime
         });
-        return token;
+
+        return {userToken: token, userId: user.id};
     });
 }
 

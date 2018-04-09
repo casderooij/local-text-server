@@ -11,7 +11,7 @@ module.exports.set = app => {
     app.get('/texts/:id', textController.getText);
     app.get('/texts', textController.getTexts);
     app.post('/texts', authMiddleware.checkAuth, textController.addText);
-    // app.get('/user_orders', authMiddleware.checkAuth, userController.getUsersWithOrders);
+    app.get('/nearest-texts/:lat/:lon', textController.nearestTexts);
 
     app.get('/users', authMiddleware.checkAuth, userController.getAllUsers);
     app.get('/users/:id', authMiddleware.checkAuth, userController.getUser);
