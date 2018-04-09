@@ -4,7 +4,6 @@ const config = require('../config');
 const checkAuth = (req, res, next) => {
     var token = req.headers['token'];
     if (!token) {
-        console.log(token);
         return res.status(403).send({ auth: false, message: 'No token provided.' });
     }
 

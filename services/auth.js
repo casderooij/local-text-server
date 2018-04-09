@@ -11,6 +11,9 @@ const authenticate = params => {
         },
         raw: true
     }).then(user => {
+        
+        console.log(user.username);
+
         if(!user)
             throw new Error('Authentication failed. User not found.');
         if(!bcrypt.compareSync(params.password || '', user.password))

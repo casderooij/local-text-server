@@ -8,8 +8,8 @@ module.exports.set = app => {
     app.post('/login', authController.login);
     app.post('/register', authController.register);
 
-    app.get('/texts', authMiddleware.checkAuth, textController.getTexts);
-    app.get('/texts/:id', authMiddleware.checkAuth, textController.getText);
+    app.get('/texts/:id', textController.getText);
+    app.get('/texts', textController.getTexts);
     app.post('/texts', authMiddleware.checkAuth, textController.addText);
     // app.get('/user_orders', authMiddleware.checkAuth, userController.getUsersWithOrders);
 
