@@ -11,13 +11,11 @@ const authenticate = params => {
         },
         raw: true
     }).then(user => {
-        
-        console.log(user.username);
-
         if(!user)
             throw new Error('Authentication failed. User not found.');
         if(!bcrypt.compareSync(params.password || '', user.password))
             throw new Error('Authentication failed. Wrong password.');
+            
         const payload = {
             username: user.username,
             id: user.id,

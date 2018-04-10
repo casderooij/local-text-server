@@ -12,11 +12,9 @@ function login(req, res) {
             success: true,
             data: { token }
         });
-        
-        console.log(token);
     })
     .catch(err => {
-        res.send({
+        res.status(400).send({
             success: false,
             message: err.message
         });
