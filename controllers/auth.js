@@ -18,7 +18,7 @@ function login(req, res) {
             success: false,
             message: err.message
         });
-    })
+    });
 };
 
 function register(req, res) {
@@ -30,7 +30,7 @@ function register(req, res) {
     .then(exists => {
 
         if(exists) {
-            return res.send({
+            return res.status(400).send({
                 success: false,
                 message: 'Registration failed. User with this email already registered.'
             });
@@ -44,7 +44,7 @@ function register(req, res) {
         return userService.addUser(user)
         .then(() => res.send({success: true}));
 
-    });
+    })
 };
 
 module.exports = {
