@@ -38,7 +38,7 @@ function putText(req, res) {
     
     textService.getById(req.params.id)
     .then(data => {
-        if(id === data.user_id) {
+        // if(id === data.user_id) {
             textService.updateText(req.params.id, {
                 title: req.body.title,
                 body: req.body.body,
@@ -47,9 +47,9 @@ function putText(req, res) {
             })
             .then(data => res.send(data))
             .catch(err => console.log(err));
-        } else {
-            res.send('This is not your text...');
-        }
+        // } else {
+        //     res.send('This is not your text...');
+        // }
     })
     .catch(err => console.log(err));
 }
@@ -59,13 +59,13 @@ function deleteText(req, res) {
     
     textService.getById(req.params.id)
     .then(data => {
-        if(id === data.user_id) {
+        // if(id === data.user_id) {
             textService.removeText(req.params.id)
             .then(data => res.json({'message': 'Text has been deleted.'}))
             .catch(err => console.log(err));
-        } else {
-            res.send('This is not your text...');
-        }
+        // } else {
+        //     res.send('This is not your text...');
+        // }
     })
     .catch(err => console.log(err));
 }
