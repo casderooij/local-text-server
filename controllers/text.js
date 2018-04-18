@@ -16,6 +16,11 @@ function getNearestTexts(req, res) {
     .then(data => res.send(data));
 }
 
+function getNearestThreeTexts(req, res) {
+    textService.findNearestThreeTexts(req.params.lat, req.params.lon)
+    .then(data => res.send(data));
+}
+
 function postText(req, res){
     textService.addText({
         user_id: req.user.id,
@@ -69,6 +74,7 @@ module.exports = {
 	getTexts,
 	getText,
     getNearestTexts,
+    getNearestThreeTexts,
     postText,
     putText,
     deleteText

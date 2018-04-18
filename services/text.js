@@ -13,6 +13,12 @@ const findNearestTexts = (lat, lon) => Texts.findAll({
     limit: 10
 });
 
+const findNearestThreeTexts = (lat, lon) => Texts.findAll({
+    attributes: [[sequelize.literal("6371 * acos(cos(radians("+lat+")) * cos(radians(latitude)) * cos(radians("+lon+") - radians(longitude)) + sin(radians("+lat+")) * sin(radians(latitude)))"),'distance'], 'id', 'user_id', 'title'],
+    order: sequelize.col('distance'),
+    limit: 3
+});
+
 const updateText = (id, text) => Texts.update(
     {title: text.title, body: text.body, latitude: text.latitude, longitude: text.longitude},
     {
@@ -30,6 +36,7 @@ module.exports = {
     getAll,
     getById,
     findNearestTexts,
+    findNearestThreeTexts,
     updateText,
     removeText
 }
