@@ -14,7 +14,6 @@ module.exports.set = app => {
     app.put('/texts/:id', authMiddleware.checkAuth, textController.putText);
     app.delete('/texts/:id', authMiddleware.checkAuth, textController.deleteText);
     app.get('/nearest-texts/:lat/:lon', textController.getNearestTexts);
-    app.get('/nearest-texts-three/:lat/:lon', textController.getNearestThreeTexts);
 
     app.get('/users', authMiddleware.checkAuth, userController.getAllUsers);
     app.get('/users/:id', authMiddleware.checkAuth, userController.getUser);
