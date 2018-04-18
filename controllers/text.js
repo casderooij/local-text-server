@@ -34,7 +34,7 @@ function postText(req, res){
 }
 
 function putText(req, res) {
-    const id = req.user.id;
+    // const id = req.user.id;
     
     textService.getById(req.params.id)
     .then(data => {
@@ -55,7 +55,7 @@ function putText(req, res) {
 }
 
 function deleteText(req, res) {
-    const id = req.user.id;
+    // const id = req.user.id;
     
     textService.getById(req.params.id)
     .then(data => {
