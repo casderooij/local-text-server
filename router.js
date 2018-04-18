@@ -18,7 +18,8 @@ module.exports.set = app => {
     app.get('/nearest-texts/:lat/:lon', textController.getNearestTexts);
 
     app.get('/users', authMiddleware.checkAuth, userController.getAllUsers);
-    app.get('/users/:id', authMiddleware.checkAuth, userController.getUser);
+    // app.get('/users/:id', authMiddleware.checkAuth, userController.getUser);
+    app.get('/users/:id', userController.getUser);
 
     app.get('/', (req, res) => res.send('Hello World!'));
 }
