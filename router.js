@@ -11,8 +11,10 @@ module.exports.set = app => {
     app.get('/texts/:id', textController.getText);
     app.get('/texts', textController.getTexts);
     app.post('/texts', authMiddleware.checkAuth, textController.postText);
-    app.put('/texts/:id', authMiddleware.checkAuth, textController.putText);
-    app.delete('/texts/:id', authMiddleware.checkAuth, textController.deleteText);
+    // app.put('/texts/:id', authMiddleware.checkAuth, textController.putText);
+    app.put('/texts/:id', textController.putText);
+    // app.delete('/texts/:id', authMiddleware.checkAuth, textController.deleteText);
+    app.delete('/texts/:id', textController.deleteText);
     app.get('/nearest-texts/:lat/:lon', textController.getNearestTexts);
 
     app.get('/users', authMiddleware.checkAuth, userController.getAllUsers);
