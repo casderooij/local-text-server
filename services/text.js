@@ -31,6 +31,12 @@ const removeText = id => Texts.destroy({
     where: {id: id}
 });
 
+const getUserAndTexts = id => Texts.findAll({
+    where: {
+        user_id: id
+    }
+});
+
 module.exports = {
     addText,
     getAll,
@@ -38,5 +44,6 @@ module.exports = {
     findNearestTexts,
     findNearestThreeTexts,
     updateText,
-    removeText
+    removeText,
+    getUserAndTexts
 }

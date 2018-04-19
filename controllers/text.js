@@ -70,6 +70,12 @@ function deleteText(req, res) {
     .catch(err => console.log(err));
 }
 
+function getUserTexts(req, res) {
+    userService.getUserAndTexts(req.params.id)
+    .then(data => res.send(data))
+    .catch(err => console.log(err));
+}
+
 module.exports = {
 	getTexts,
 	getText,
@@ -77,5 +83,6 @@ module.exports = {
     getNearestThreeTexts,
     postText,
     putText,
-    deleteText
+    deleteText,
+    getUserTexts
 }
