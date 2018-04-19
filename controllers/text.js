@@ -71,7 +71,7 @@ function deleteText(req, res) {
 }
 
 function getUserTexts(req, res) {
-    userService.getUserAndTexts(req.params.id)
+    textService.getUserAndTexts(req.params.id)
     .then(data => res.send(data))
     .catch(err => console.log(err));
 }
